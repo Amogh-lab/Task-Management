@@ -1,1 +1,0 @@
-mongodb+srv://amoghap099:5NH3FiSQZeBgS97B@taskcluster.a2bmf9d.mongodb.net/?retryWrites=true&w=majority&appName=TaskCluster
