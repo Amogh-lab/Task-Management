@@ -1,0 +1,155 @@
+/* Dark mode styles */
+.task-container {
+  width: 90vw;
+  max-width: 500px;
+  height: 60vh;               /* 60% of viewport height */
+  margin: 0 auto;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  background-color: #181a1b;
+  color: #e0e0e0;
+  border-radius: 24px;
+  min-width: 220px;
+  position: relative;
+  box-sizing: border-box;
+  transition: width 0.3s, height 0.3s;
+}
+
+@media (min-width: 600px) {
+  .task-container {
+    width: 60vw;
+    max-width: 600px;
+    height: 60vh;
+  }
+}
+
+@media (min-width: 900px) {
+  .task-container {
+    width: 30vw;
+    max-width: 400px;
+    height: 60vh;
+  }
+}
+
+.task-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  background: #181a1b;
+  z-index: 2;
+  padding-bottom: 8px;
+}
+
+.task-list {
+  display: flex;
+  border-radius: 12px;
+  flex-direction: column;
+  gap: 12px;
+  height: calc(55vh - 56px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.task-list::-webkit-scrollbar {
+  display: none;
+}
+
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-color: #23272a;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.task-name.completed {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.task-details {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+}
+
+.task-time {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffb300;
+}
+
+/* Button styles */
+.task-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.task-actions button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.done-btn {
+  background: #388e3c;
+  color: #fff;
+}
+
+.done-btn:hover {
+  background: #2e7031;
+}
+
+.edit-btn {
+  background: #1976d2;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #115293;
+}
+
+.delete-btn {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #9a2323;
+}
+
+/* Responsive: stack buttons on small screens */
+@media (max-width: 400px) {
+  .task-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
