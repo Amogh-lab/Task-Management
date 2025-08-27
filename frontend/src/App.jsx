@@ -1,7 +1,11 @@
 import React from 'react'
 import './App.css'
 import { useEffect } from 'react';
-import TaskCard from './components/taskcard.jsx';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Signup';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   const [tasks, setTasks] = React.useState([]);
@@ -21,12 +25,18 @@ const App = () => {
     };
     fetchTasks();
   }, []);
-
+  console.log(tasks);
 
   return (
   <div>
-    <h2>tasks to do</h2>
-    <TaskCard tasks={tasks} />
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/dashboard' element={<Dashboard tasks={tasks}/>} />
+      </Routes>
+    </Router>
   </div>
   )
 }

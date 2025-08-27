@@ -78,6 +78,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: #e0e0e0;
+  margin-bottom: 0.15rem;
 }
 
 .task-name.completed {
@@ -92,7 +93,7 @@
 
 .task-time {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 300;
   color: #ffb300;
 }
 
@@ -104,14 +105,16 @@
 }
 
 .task-actions button {
-  padding: 6px 14px;
+  background: none;
   border: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  padding: 6px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  transition: background 0.2s;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .done-btn {
@@ -119,26 +122,46 @@
   color: #fff;
 }
 
-.done-btn:hover {
+/* .done-btn:hover {
   background: #2e7031;
-}
+} */
 
 .edit-btn {
   background: #1976d2;
   color: #fff;
 }
 
-.edit-btn:hover {
+/* .edit-btn:hover {
   background: #115293;
-}
+} */
 
 .delete-btn {
   background: #d32f2f;
   color: #fff;
 }
 
-.delete-btn:hover {
+/* .delete-btn:hover {
   background: #9a2323;
+} */
+
+.done-btn svg,
+.edit-btn svg,
+.delete-btn svg {
+  color: inherit;
+  font-size: 1.04rem;    /* Reduced by 20% from 1.3rem */
+  font-weight: 300;      /* Decreased font weight */
+}
+
+.done-btn svg {
+  color: #ffd600;
+}
+
+.edit-btn svg {
+  color: #ffd600;
+}
+
+.delete-btn svg {
+  color: #ff5252;
 }
 
 /* Responsive: stack buttons on small screens */
