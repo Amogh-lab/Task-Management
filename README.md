@@ -4,6 +4,37 @@
 
 This is a full-stack application built with Node.js, Express.js, and React.js. The application allows users to manage tasks, including creating, reading, updating, and deleting tasks.
 
+## Features
+
+- User registration and login (with hashed passwords)
+- Create, read, update, and delete (CRUD) tasks
+- Mark tasks as completed
+- Responsive, dark-themed UI
+- RESTful API backend
+- MongoDB for persistent storage
+
+##  Tech Stack
+
+### Frontend
+- [React](https://react.dev/) (with Hooks)
+- [React Router DOM](https://reactrouter.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Vite](https://vitejs.dev/) (for fast development)
+- CSS (custom, dark mode)
+
+### Backend
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Mongoose](https://mongoosejs.com/) (MongoDB ODM)
+- [bcrypt](https://www.npmjs.com/package/bcrypt) (password hashing)
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) (JWT auth, planned)
+- [dotenv](https://www.npmjs.com/package/dotenv) (environment variables)
+- [cors](https://www.npmjs.com/package/cors) (CORS support)
+
+### Database
+- [MongoDB Atlas](https://www.mongodb.com/atlas) (cloud database)
+
+---
 ## Backend
 
 ### API Endpoints
@@ -61,7 +92,11 @@ This is a full-stack application built with Node.js, Express.js, and React.js. T
 * `@vitejs/plugin-react`: ^5.0.0
 
 ### Environment Variables
-
+Create a `.env` file in the `backend/` directory:
+```
+MONGO_URI=your_mongodb_connection_string 
+PORT=5000
+```
 * `VITE_PORT`: The port number for the frontend development server
 
 ## Getting Started
@@ -79,3 +114,10 @@ Contributions are welcome! Please submit a pull request with your changes.
 ## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
+
+## Acknowledgements
+
+- React
+- Express
+- MongoDB Atlas
+- Vite
