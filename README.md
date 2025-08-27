@@ -58,9 +58,15 @@ This is a full-stack application built with Node.js, Express.js, and React.js. T
 * `Task.js`: Defines the Mongoose model for tasks
 
 ### Environment Variables
+Create a `.env` file in the `backend/` directory:
 
 * `MONGO_URI`: The MongoDB connection URI
 * `PORT`: The port number for the backend server
+
+```
+MONGO_URI=your_mongodb_connection_string 
+PORT=5000
+```
 
 ## Frontend
 
@@ -92,11 +98,7 @@ This is a full-stack application built with Node.js, Express.js, and React.js. T
 * `@vitejs/plugin-react`: ^5.0.0
 
 ### Environment Variables
-Create a `.env` file in the `backend/` directory:
-```
-MONGO_URI=your_mongodb_connection_string 
-PORT=5000
-```
+
 * `VITE_PORT`: The port number for the frontend development server
 
 ## Getting Started
