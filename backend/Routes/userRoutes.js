@@ -34,5 +34,24 @@ router.post('/users', async (req, res) => {
     }
 });
 
+router.post('/users/login', async (req, res) => {
+    const { username, mail, password } = req.body;
+    const user = await User.findOne(user=>{$or [{username}, {mail}]});
+    if(!user){
+        return res.status(400).json({message: 'User not found'});
+    }
+    try{
+        const isMatch = bcrypt.compare(password, user.password);
+        if(!isMatch){
+            return res.status(400).json({message: 'Invalid credentials'});
+        }
+        else{
+            return res.status(200).json({message: 'Login successful'});
+        }
+    }
+    catch{
+        return res.status(500).json({message: 'Error during authentication'});
+    }
+});
             
 module.exports = router;
