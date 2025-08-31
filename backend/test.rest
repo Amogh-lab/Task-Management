@@ -1,1 +1,85 @@
 GET http://localhost:5000/api/users/users
+
+###
+
+POST http://localhost:5000/api/users/login
+Content-Type: application/json  
+
+{
+    "username": "alice01",
+    "password": "alicepass"
+}
+
+###
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "username": "bobbyj",
+    "password": "bobpass"
+}
+
+###
+
+POST http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+    "name": "Amogh",
+    "username": "Amogh123",
+    "mail": "amnsf@gmail.com",
+    "password": "amogh123",
+    "age": 21
+}
+
+###
+
+POST http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+    "name": "Alice Smith",
+    "username": "alice01",
+    "mail": "alice01@example.com",
+    "password": "alicepass",
+    "age": 25
+}
+
+###
+
+POST http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+    "name": "Bob Johnson",
+    "username": "bobbyj",
+    "mail": "bob.johnson@example.com",
+    "password": "bobpass",
+    "age": 30
+}
+
+###
+
+POST http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+    "name": "Charlie Lee",
+    "username": "charlielee",
+    "mail": "charlie.lee@example.com",
+    "password": "charliepass",
+    "age": 22
+}
+
+###
+
+POST http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+    "name": "Diana Prince",
+    "username": "dianap",
+    "mail": "diana.prince@example.com",
+    "password": "dianapass",
+    "age": 28
+}

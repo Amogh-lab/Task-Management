@@ -14,9 +14,14 @@ router.get('/users', async(req, res) => {{
    }
 }});
 
-router.post('/users', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const { name, username, mail, password, age } = req.body;
+        const existingUser = await User.findOne({$or: [{username}, {mail}]});
+        if (existingUser) {
+            return res.status(400).json({ message: 'Username or email already exists' });
+        }
+        
         // const salt = await bcrypt.genSalt();
         const hashpassword = await bcrypt.hash(req.body.password, 10);
         const user = new User({
@@ -34,24 +39,40 @@ router.post('/users', async (req, res) => {
     }
 });
 
-router.post('/users/login', async (req, res) => {
+// router.post('/users/login', async (req, res) => {
+//     const { username, mail, password } = req.body;
+//     const user = await User.findOne(user=>{$or [{username}, {mail}]});
+//     if(!user){
+//         return res.status(400).json({message: 'User not found'});
+//     }
+//     try{
+//         const isMatch = bcrypt.compare(password, user.password);
+//         if(!isMatch){
+//             return res.status(400).json({message: 'Invalid credentials'});
+//         }
+//         else{
+//             return res.status(200).json({message: 'Login successful'});
+//         }
+//     }
+//     catch{
+//         return res.status(500).json({message: 'Error during authentication'});
+//     }
+// });
+
+router.post('/login', async (req, res) => {
     const { username, mail, password } = req.body;
-    const user = await User.findOne(user=>{$or [{username}, {mail}]});
-    if(!user){
-        return res.status(400).json({message: 'User not found'});
+    const user = await User.findOne({ $or: [ { username }, { mail } ] });
+    if (!user) {
+        return res.status(400).json({ message: 'User not found' });
     }
-    try{
-        const isMatch = bcrypt.compare(password, user.password);
-        if(!isMatch){
-            return res.status(400).json({message: 'Invalid credentials'});
+    try {
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Invalid credentials' });
         }
-        else{
-            return res.status(200).json({message: 'Login successful'});
-        }
-    }
-    catch{
-        return res.status(500).json({message: 'Error during authentication'});
+        return res.status(200).json({ message: 'Login successful' });
+    } catch {
+        return res.status(500).json({ message: 'Error during authentication' });
     }
 });
-            
 module.exports = router;
