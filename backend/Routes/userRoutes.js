@@ -17,8 +17,8 @@ router.get('/users', async(req, res) => {{
 router.post('/users', async (req, res) => {
     try {
         const { name, username, mail, password, age } = req.body;
-        const salt = await bcrypt.genSalt();
-        const hashpassword = await bcrypt.hash(req.body.password, salt);
+        // const salt = await bcrypt.genSalt();
+        const hashpassword = await bcrypt.hash(req.body.password, 10);
         const user = new User({
             name,
             username,
@@ -33,4 +33,6 @@ router.post('/users', async (req, res) => {
         res.status(500).json({message: 'Error registering user'});
     }
 });
+
+            
 module.exports = router;
